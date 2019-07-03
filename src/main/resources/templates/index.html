@@ -4,9 +4,19 @@
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="ie=edge" http-equiv="x-ua-compatible">
-        <title>Title</title>
+        <title>My recipes</title>
     </head>
     <body>
         <h1 th:text="'what\'s good yall'"></h1>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+            </tr>
+            <tr th:each="recipe : ${recipes}">
+                <td th:text="${recipe.id}">123</td>
+                <td th:text="${recipe.description}"></td>
+            </tr>
+        </table>
     </body>
 </html>
