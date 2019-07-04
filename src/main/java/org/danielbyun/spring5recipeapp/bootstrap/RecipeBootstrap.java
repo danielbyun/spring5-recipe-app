@@ -1,5 +1,6 @@
 package org.danielbyun.spring5recipeapp.bootstrap;
 
+import lombok.extern.slf4j.Slf4j;
 import org.danielbyun.spring5recipeapp.model.*;
 import org.danielbyun.spring5recipeapp.repository.CategoryRepository;
 import org.danielbyun.spring5recipeapp.repository.RecipeRepository;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private final CategoryRepository categoryRepository;
@@ -33,6 +35,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     }
 
     private List<Recipe> getRecipes() {
+        log.debug("i'm in the bootstrap");
         List<Recipe> recipes = new ArrayList<>();
 
         // get UOMS
