@@ -32,4 +32,10 @@ public class Ingredient {
         this.unitOfMeasure = unitOfMeasure;
     }
 
+    public Ingredient(String description, BigDecimal amount, Recipe recipe, UnitOfMeasure unitOfMeasure) {
+        this.description = description;
+        this.amount = amount;
+        this.recipe = recipe;
+        this.unitOfMeasure = unitOfMeasure;
+    }
 }

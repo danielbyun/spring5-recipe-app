@@ -1,11 +1,13 @@
 package org.danielbyun.spring5recipeapp.model;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 
-@Data
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Notes {
@@ -19,9 +21,6 @@ public class Notes {
     @Lob
     private String recipeNotes;
 
-    public Notes() {
-    }
-
     public Notes(Recipe recipe, String recipeNotes) {
         this.recipe = recipe;
         this.recipeNotes = recipeNotes;
@@ -30,5 +29,6 @@ public class Notes {
     protected boolean canEqual(final Object other) {
         return other instanceof Notes;
     }
+
 
 }
