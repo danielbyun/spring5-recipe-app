@@ -27,7 +27,7 @@ public class IndexControllerTest {
     @Mock
     Model model;
 
-    IndexController indexController;
+    private IndexController indexController;
 
     @Before
     public void setUp() throws Exception {
