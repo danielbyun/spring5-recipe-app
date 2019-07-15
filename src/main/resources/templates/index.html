@@ -4,11 +4,13 @@
         <meta charset="UTF-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="ie=edge" http-equiv="x-ua-compatible">
-        <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}">
+        <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+              th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}">
         <script src="/webjars/jquery/3.4.1/jquery.min.js"></script>
 
         <!-- Latest compiled and minified JavaScript -->
-        <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+        <script src="/webjars/bootstrap/4.3.1/js/bootstrap.min.js"
+                th:src="@{/webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
         <title>My recipes</title>
     </head>
     <body>
@@ -29,6 +31,20 @@
                                             <th>view</th>
                                         </tr>
                                     </thead>
+                                    <tr th:remove="all">
+                                        <td>123</td>
+                                        <td>tasty</td>
+                                        <td>
+                                            <a href="">view</a>
+                                        </td>
+                                    </tr>
+                                    <tr th:remove="all">
+                                        <td>123</td>
+                                        <td>tasty</td>
+                                        <td>
+                                            <a href="">view</a>
+                                        </td>
+                                    </tr>
                                     <tr th:each="recipe : ${recipes}">
                                         <td th:text="${recipe.id}">123</td>
                                         <td th:text="${recipe.description}"></td>
