@@ -2,8 +2,10 @@ package org.danielbyun.spring5recipeapp.service.impl;
 
 import org.danielbyun.spring5recipeapp.model.Recipe;
 import org.danielbyun.spring5recipeapp.repository.RecipeRepository;
-import org.junit.Before;
+import org.danielbyun.spring5recipeapp.util.RecipeCommandToRecipe;
+import org.danielbyun.spring5recipeapp.util.RecipeToRecipeCommand;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -16,16 +18,22 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
 public class RecipeServiceImplTest {
-    private RecipeServiceImpl recipeService;
+    RecipeServiceImpl recipeService;
 
     @Mock
     RecipeRepository recipeRepository;
 
-    @Before
+    @Mock
+    RecipeToRecipeCommand recipeToRecipeCommand;
+
+    @Mock
+    RecipeCommandToRecipe recipeCommandToRecipe;
+
+    @BeforeEach
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
@@ -44,16 +52,17 @@ public class RecipeServiceImplTest {
     }
 
     @Test
-    public void getRecipes() {
-        Recipe recipe = new Recipe();
-        Set<Recipe> recipesData = new HashSet<>();
-        recipesData.add(recipe);
+    public void getRecipesTest() throws Exception {
 
-        when(recipeService.getRecipes()).thenReturn(recipesData);
+        Recipe recipe = new Recipe();
+        HashSet receipesData = new HashSet();
+        receipesData.add(recipe);
+
+        when(recipeService.getRecipes()).thenReturn(receipesData);
 
         Set<Recipe> recipes = recipeService.getRecipes();
+
         assertEquals(recipes.size(), 1);
-        // verify that recipeRepository times once, findAll() gets called ONLY once.
         verify(recipeRepository, times(1)).findAll();
         verify(recipeRepository, never()).findById(anyLong());
     }
