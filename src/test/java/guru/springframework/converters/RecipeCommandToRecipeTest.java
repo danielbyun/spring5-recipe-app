@@ -29,7 +29,6 @@ public class RecipeCommandToRecipeTest {
 
     RecipeCommandToRecipe converter;
 
-
     @Before
     public void setUp() throws Exception {
         converter = new RecipeCommandToRecipe(new CategoryCommandToCategory(),
@@ -101,5 +100,4 @@ public class RecipeCommandToRecipeTest {
         assertEquals(2, recipe.getCategories().size());
         assertEquals(2, recipe.getIngredients().size());
     }
-
 }

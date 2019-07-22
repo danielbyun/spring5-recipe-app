@@ -14,14 +14,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.Assert.assertEquals;
 
-
-/**
- * Created by jt on 6/21/17.
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RecipeServiceIT {
-
     public static final String NEW_DESCRIPTION = "New Description";
 
     @Autowired
@@ -45,7 +40,9 @@ public class RecipeServiceIT {
         RecipeCommand testRecipeCommand = recipeToRecipeCommand.convert(testRecipe);
 
         //when
-        testRecipeCommand.setDescription(NEW_DESCRIPTION);
+        if (testRecipeCommand != null) {
+            testRecipeCommand.setDescription(NEW_DESCRIPTION);
+        }
         RecipeCommand savedRecipeCommand = recipeService.saveRecipeCommand(testRecipeCommand);
 
         //then

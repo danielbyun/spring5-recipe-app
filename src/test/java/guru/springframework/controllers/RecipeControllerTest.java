@@ -18,12 +18,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/**
- * Created by jt on 6/19/17.
- */
 public class RecipeControllerTest {
-
-
     @Mock
     RecipeService recipeService;
 
@@ -51,7 +46,6 @@ public class RecipeControllerTest {
                 .andExpect(view().name("recipe/show"))
                 .andExpect(model().attributeExists("recipe"));
     }
-
 
     @Test
     public void testGetNewRecipeForm() throws Exception {

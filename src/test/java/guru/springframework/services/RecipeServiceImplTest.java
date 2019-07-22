@@ -1,6 +1,5 @@
 package guru.springframework.services;
 
-
 import guru.springframework.converters.RecipeCommandToRecipe;
 import guru.springframework.converters.RecipeToRecipeCommand;
 import guru.springframework.domain.Recipe;
@@ -18,11 +17,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.*;
 
-/**
- * Created by jt on 6/17/17.
- */
 public class RecipeServiceImplTest {
-
     RecipeServiceImpl recipeService;
 
     @Mock
@@ -84,5 +79,4 @@ public class RecipeServiceImplTest {
         // then
         verify(recipeRepository, times(1)).deleteById(anyLong());
     }
-
 }
