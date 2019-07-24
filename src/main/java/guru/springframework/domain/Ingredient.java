@@ -6,14 +6,10 @@ import lombok.EqualsAndHashCode;
 import javax.persistence.*;
 import java.math.BigDecimal;
 
-/**
- * Created by jt on 6/13/17.
- */
 @Data
 @EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Ingredient {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

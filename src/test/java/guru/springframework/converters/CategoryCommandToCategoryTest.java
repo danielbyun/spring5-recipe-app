@@ -9,23 +9,23 @@ import static org.junit.Assert.*;
 
 public class CategoryCommandToCategoryTest {
 
-    public static final Long ID_VALUE = 1L;
+    public static final Long ID_VALUE = new Long(1L);
     public static final String DESCRIPTION = "description";
-    CategoryCommandToCategory converter;
+    CategoryCommandToCategory conveter;
 
     @Before
     public void setUp() throws Exception {
-        converter = new CategoryCommandToCategory();
+        conveter = new CategoryCommandToCategory();
     }
 
     @Test
     public void testNullObject() throws Exception {
-        assertNull(converter.convert(null));
+        assertNull(conveter.convert(null));
     }
 
     @Test
     public void testEmptyObject() throws Exception {
-        assertNotNull(converter.convert(new CategoryCommand()));
+        assertNotNull(conveter.convert(new CategoryCommand()));
     }
 
     @Test
@@ -36,7 +36,7 @@ public class CategoryCommandToCategoryTest {
         categoryCommand.setDescription(DESCRIPTION);
 
         //when
-        Category category = converter.convert(categoryCommand);
+        Category category = conveter.convert(categoryCommand);
 
         //then
         assertEquals(ID_VALUE, category.getId());

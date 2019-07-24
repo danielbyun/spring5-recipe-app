@@ -18,6 +18,8 @@
                 crossorigin="anonymous" th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
     </head>
     <body>
+        <!--/*@thymesVar id="recipes" type="java.util.List"*/-->
+        <!--/*@thymesVar id="recipe" type="guru.springframework.domain.Recipe"*/-->
         <div class="container-fluid" style="margin-top: 20px">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
@@ -31,21 +33,11 @@
                                 <table class="table table-hover ">
                                     <thead class="thead-inverse">
                                         <tr>
-                                            <th>
-                                                ID
-                                            </th>
-                                            <th>
-                                                Description
-                                            </th>
-                                            <th>
-                                                View
-                                            </th>
-                                            <th>
-                                                Update
-                                            </th>
-                                            <th>
-                                                Delete
-                                            </th>
+                                            <th>ID</th>
+                                            <th>Description</th>
+                                            <th>View</th>
+                                            <th>Update</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tr th:remove="all">
@@ -61,14 +53,10 @@
                                     <tr th:each="recipe : ${recipes}">
                                         <td th:text="${recipe.id}">334</td>
                                         <td th:text="${recipe.description}">Tasty Goodnees 3</td>
-                                        <td>
-                                            <a href="#" th:href="@{'/recipe/' + ${recipe.id}} + '/show'">View</a>
+                                        <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show'}">View</a></td>
+                                        <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update'}">Update</a>
                                         </td>
-                                        <td>
-                                            <a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update'}">Update</a>
-                                        </td>
-                                        <td>
-                                            <a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/delete'}">Delete</a>
+                                        <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/delete'}">Delete</a>
                                         </td>
                                     </tr>
                                 </table>
@@ -78,5 +66,6 @@
                 </div>
             </div>
         </div>
+
     </body>
 </html>
